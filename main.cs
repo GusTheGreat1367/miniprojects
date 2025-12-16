@@ -1,4 +1,4 @@
-using Octokat;
+using Octokit;
 
 namespace main
 {
