@@ -1,4 +1,6 @@
 using Octokit;
+//This is my first time making a C# console application, further projects will be a seperate repo
+
 //documentation I am using to make this:
 //https://docs.github.com/en/rest?apiVersion=2022-11-28
 //https://dotnet.microsoft.com/en-us/apps/aspnet/apis
