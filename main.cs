@@ -17,6 +17,7 @@ namespace main
         public void main() 
         {
             Console.Writeline("Welcome to the C# web application to search github!");
+            Console.Writeline("We only have a repo and user search now, mor fetures coming soon!");
             Console.Writeline("Q to quit, -r (repo) to search repos, -u (user) to search users!");
             string response = Console.ReadLine(); 
         }
