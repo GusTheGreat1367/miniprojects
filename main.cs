@@ -28,11 +28,12 @@ namespace main
             {
                 if(response == "Q")
                 {
-                    //close application
+                    app.Exit();
                 }
                 else if(response == "-r")
                 {
                     //github search repo
+                    
                 }
                 else if(response == "-u")
                 {
@@ -45,6 +46,9 @@ namespace main
                 main();
             }
         }
-        app.Run();
+        if(response == "GitSearch Enable")
+        {
+            app.Run();
+        }
     }
 }
