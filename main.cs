@@ -1,5 +1,8 @@
 using Octokit;
-
+//documentation I am using to make this:
+//https://docs.github.com/en/rest?apiVersion=2022-11-28
+//
+//
 namespace main
 {
     public class main
