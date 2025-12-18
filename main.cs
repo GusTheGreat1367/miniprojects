@@ -4,51 +4,74 @@ using Octokit;
 //documentation I am using to make this:
 //https://docs.github.com/en/rest?apiVersion=2022-11-28
 //https://dotnet.microsoft.com/en-us/apps/aspnet/apis
-//https://octokitnet.readthedocs.io/en/latest/
-namespace main
+// and my GOAT: https://octokitnet.readthedocs.io/en/latest/ 
+
+//pls visit my website! https://gusthegreat1367.github.io
+
+//I will add a tab for all my repos on my site soon
+namespace GitSearch
 {
-    public class main
+    public class GitSearch
     {
         //import Github API
-        //https://octokitnet.readthedocs.io/en/latest/
-        //https://dotnet.microsoft.com/en-us/apps/aspnet/apis
         var responses = new [] {"-r", "-u", "Q"}; //append new command here
         var app = WebApplication.Create();
+        string response; 
+
+        /*
+        if(response == "GitSearch Enable")
+            app.Run();
+            main();
+        */
+
         public void main() 
         {
-            Console.Writeline("Welcome to the C# web application to search github!/n");
-            Console.Writeline("We only have a repo and user search now, mor fetures coming soon!/n");
-            Console.Writeline("Q to quit, -r (repo) to search repos, -u (user) to search users!/n");
-            string response = Console.ReadLine(); 
+            Console.WriteLine("""
+              ____ _ _   ____                      _     
+             / ___(_) |_/ ___|  ___  __ _ _ __ ___| |__  
+            | |  _| | __\___ \ / _ \/ _` | '__/ __| '_ \ 
+            | |_| | | |_ ___) |  __/ (_| | | | (__| | | |
+             \____|_|\__|____/ \___|\__,_|_|  \___|_| |_|  """)
+            Console.WriteLine("Welcome to the C# console application to search github!");
+            Console.WriteLine("We only have a repo and user search now, mor fetures coming soon!");
+            Console.WriteLine("Q to quit, -r (repo) to search repos, -u (user) to search users!");
         }
         public void Inputs()
         {
-            main();
-            try()
+            Console.WriteLine("Enter a command: ");
+            response = Console.ReadLine(); 
+            foreach(var command in response)
             {
-                if(response == "Q")
+                try //URGENT, SWAP IT TO FIND IF THERE IS A Q, -r, OR -u INSTEAD OF THE METHOD NOW
                 {
-                    app.Exit();
-                }
-                else if(response == "-r")
-                {
-                    //github search repo
+                    if(response == "Q") 
+                    {
+                        app.Exit();
+                    }
+                    else if(response == "-r")
+                    {
+                        var request = new SearchRepositoriesRequest(response);
+                        var result = await githubClient.Search.SearchRepo(request);
+                        Console.WriteLine(result);
                     
+                    }
+                    else if(response == "-u")
+                    {
+                        var request = new SearchUsersRequest(response)
+                        var result = await githubClient.Search.SearchUsers(request);
+                        Console.WriteLine(result);
+                    }
                 }
-                else if(response == "-u")
+                catch(response != responses)
                 {
-                    //github search users
+                    Console.WriteLine("Response not in commands!");
+                    // return "not in commands";
+                }
+                finally
+                {
+                    Inputs();
                 }
             }
-            catch(response != responses)
-            {
-                Console.Writeline("Response not in commands!");
-                main();
-            }
-        }
-        if(response == "GitSearch Enable")
-        {
-            app.Run();
         }
     }
 }
